@@ -1045,9 +1045,13 @@ function LoginScreen(_ref0) {
     inputMode: "numeric",
     pattern: "[0-9]*",
     maxLength: 4,
+    autoFocus: true,
+    autoComplete: "off",
+    autoCorrect: "off",
+    spellCheck: false,
     value: pin,
     onChange: e => {
-      setPin(e.target.value.replace(/\D/g, ''));
+      setPin(e.target.value.replace(/\D/g, '').slice(0, 4));
       setError('');
     },
     onKeyDown: e => e.key === 'Enter' && submit(),
